@@ -1,5 +1,5 @@
 # ApiProxy
-Asp.Net api that forwards requests to a configured host and returns the results.  Any path or query string parameters are passed on to the new host.
+This is a simple ASP.NET api that forwards requests to a configured host and returns the results.  Any path or query string parameters are passed on to the new host.
 
 Supported Http Methods:
 * GET
@@ -8,11 +8,11 @@ Supported Http Methods:
 * PATCH
 * DELETE
 
-The desired host is configured in the web.config file AppSettings:
+The desired target host is configured in the web.config file AppSettings:
 
 ```
 <appSettings>
-    <add key="ForwardToHost" value="http://services.odata.org/V3/Northwind/Northwind.svc"/>
+    <add key="TargetHost" value="http://services.odata.org/V3/Northwind/Northwind.svc"/>
 </appSettings>
 ```
 
@@ -25,8 +25,8 @@ public Task<HttpResponseMessage> SendMessage()
 {
     // Create a new Uri using the configured host.  This is where the request will be forwarded.
     // The host value is configured in the web.config file
-    string forwardToHost = ConfigurationManager.AppSettings.Get("ForwardToHost");
-    string forwardUri = forwardToHost + Request.RequestUri.PathAndQuery;
+    string targetHost = ConfigurationManager.AppSettings.Get("TargetHost");
+    string forwardUri = targetHost + Request.RequestUri.PathAndQuery;
 
     // Update the request with the new Uri
     Request.Headers.Remove("Host");
