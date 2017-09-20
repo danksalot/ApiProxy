@@ -14,7 +14,7 @@ namespace Proxy.Controllers
     [CustomFilter, RequreHttpsFilter]
     public class ProxyController : ApiController
     {
-        [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]
+        [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete, HttpHead]
         [Route("{*remaining}")]
         public Task<HttpResponseMessage> SendMessage()
         {
