@@ -20,8 +20,8 @@ namespace Proxy.Controllers
         {
             // Create a new Uri using the configured host.  This is where the request will be forwarded.
             // The host value is configured in the web.config file
-            string forwardToHost = ConfigurationManager.AppSettings.Get("ForwardToHost");
-            string forwardUri = forwardToHost + Request.RequestUri.PathAndQuery;
+            string targetHost = ConfigurationManager.AppSettings.Get("TargetHost");
+            string forwardUri = targetHost + Request.RequestUri.PathAndQuery;
 
             // Update the request with the new Uri
             Request.Headers.Remove("Host");
