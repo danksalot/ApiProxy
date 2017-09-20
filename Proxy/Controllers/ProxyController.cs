@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace Proxy.Controllers
 {
-    [CustomFilter]
+    [CustomFilter, RequreHttpsFilter]
     public class ProxyController : ApiController
     {
         [HttpGet, HttpPost, HttpPut, HttpPatch, HttpDelete]

@@ -91,6 +91,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProxyController.cs" />
     <Compile Include="Filters\CustomFilter.cs" />
+    <Compile Include="Filters\RequreHttpsFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
