@@ -3,7 +3,7 @@ solution: Proxy.sln
 mono:
   - latest
 
-dotnet: 4.6.1
+# dotnet: 4.6.1
 
 # install:
 #   - nuget restore Proxy.sln
